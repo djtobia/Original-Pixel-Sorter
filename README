@@ -1,0 +1,6 @@
+How To use:
+
+Pass the image you wish to sort as a command line argument, and the program does the rest!
+The file that is output will be named "OriginalFileNameSorted.jpg", where OriginalFileName is, well, the original files name.
+
+I haven't tested this extremely well, so there are chances for bugs. If you find any, please let me know!
