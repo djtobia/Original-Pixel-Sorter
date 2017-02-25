@@ -12,8 +12,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import javax.imageio.ImageIO;
 
-public class PixelSorter {
+public final class PixelSorter {
 
+	private PixelSorter() {}
+	
 	public static void main(String[] args) {
 		//read in image
 		BufferedImage image = null;
@@ -73,17 +75,12 @@ public class PixelSorter {
 		return sorted;
 	}
 
-	//copy origingal values into new array, and sort that array using Arrays.sort
+	//copy original values into new array, and sort that array using Arrays.sort
 	private static int[] sortRow(int[] row) {
 		int[] sortedRow = new int[row.length];
-		for(int i = 0; i < sortedRow.length; i++)
-		{
-			sortedRow[i] = row[i];
-		}
+		System.arraycopy(row, 0, sortedRow, 0, sortedRow.length);
 		Arrays.sort(sortedRow);
 		return sortedRow;
-		
-
 	}
 
 	//step through the file and grab each pixel's rgb single int value, and store it in a 2d array, return this array.
