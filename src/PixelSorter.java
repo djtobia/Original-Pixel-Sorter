@@ -59,9 +59,7 @@ public final class PixelSorter {
 
 	//takes original file name from original image, removes its old type, adds "Sorted.jpg" to the end of it
 	private static String getNewFileName(String originalFile) {
-		StringBuilder newName = new StringBuilder(originalFile);
-		newName.replace(newName.length()-4, newName.length(), "Sorted.jpg");
-		return newName.toString();
+		return originalFile.replace(originalFile.substring(originalFile.length()-4, originalFile.length()), "Sorted.jpg");
 	}
 
 	//gets each individual row from the array of pixels, and calls another function to sort them, then returns sorted 2d array
