@@ -30,7 +30,7 @@ public final class PixelSorter {
 		int imageHeight= image.getHeight();
 		
 		//get all pixels in file as a 2d array
-		int[][] allPixels = getPixels(image, imageWidth, imageHeight);
+		int[][] allPixels = getPixels(image);
 		//call sort function to sort each row of pixels
 		allPixels = sort(allPixels, imageWidth, imageHeight);
 		//create a new BufferedImage for creating the sorted image, using the same width, height, and type of original image
@@ -84,13 +84,15 @@ public final class PixelSorter {
 	}
 
 	//step through the file and grab each pixel's rgb single int value, and store it in a 2d array, return this array.
-	private static int[][] getPixels(BufferedImage image, int imageWidth, int imageHeight) {
-		int[][] pixels = new int[imageHeight][imageWidth];
-		for(int i = 0; i < imageHeight; i++)
+	private static int[][] getPixels(BufferedImage image) {
+		int[][] pixels = new int[image.getHeight()][image.getWidth()];
+		int height = image.getHeight();
+		int width = image.getWidth();
+		for(int i = 0; i < height; i++)
 		{
-			for(int j = 0; j < imageWidth; j++)
+			for(int j = 0; j < width; j++)
 			{
-				pixels[i][j] = image.getRGB(j, i);
+				pixels[i][j] = image.getRGB(j, i); 
 			}
 			
 		}
